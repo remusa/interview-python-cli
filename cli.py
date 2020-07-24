@@ -70,6 +70,6 @@ def punto_medio(lim_sup: float, lim_inf: float, obj: float, err: float = 0.05) -
 
 
 if __name__ == "__main__":
-    # resultado, iteraciones = init()
-    resultado, iteraciones = punto_medio(100, 20, 52.5, 0.05)
+    resultado, iteraciones = init()
+    # resultado, iteraciones = punto_medio(100, 20, 52.5, 0.05)
     print(f"Resultado: {resultado} | Iteraciones: {iteraciones}")
