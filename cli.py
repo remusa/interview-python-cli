@@ -2,7 +2,7 @@ import sys
 
 
 def init():
-    print(sys.argv)
+    # print(sys.argv)
 
     try:
         lim_sup: float = float(sys.argv[1])
@@ -43,13 +43,14 @@ def punto_medio(lim_sup: float, lim_inf: float, obj: float, err: float = 0.05) -
     p: float = lim_sup
     r: float = lim_inf
     q: float = (lim_sup + lim_inf) / 2
+
     i: int = 0
     res: float = 0
 
-    min = obj - err
-    max = obj + err
+    min: float = obj - err
+    max: float = obj + err
 
-    while q != obj:
+    while (q > max or q < min) or q != obj:
         q = (p + r) / 2
         i += 1
 
@@ -69,6 +70,6 @@ def punto_medio(lim_sup: float, lim_inf: float, obj: float, err: float = 0.05) -
 
 
 if __name__ == "__main__":
-    resultado, iteraciones = init()
-    # resultado, iteraciones = punto_medio(100, 20, 52.5, 0.05)
+    # resultado, iteraciones = init()
+    resultado, iteraciones = punto_medio(100, 20, 52.5, 0.05)
     print(f"Resultado: {resultado} | Iteraciones: {iteraciones}")
