@@ -1,8 +1,16 @@
+import argparse
 import sys
 
 
 def init():
     # print(sys.argv)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--lim_sup", type=float, default=100.0)
+    parser.add_argument("--lim_inf", type=float, default=20.0)
+    parser.add_argument("--obj", type=float, default=52.5)
+    parser.add_argument("--error", type=float, default=0.05)
+    args = parser.parse_args()
+    print("args: ", args)
 
     try:
         lim_sup: float = float(sys.argv[1])
@@ -34,6 +42,10 @@ def init():
         err: float = float(input("Error: "))
     except ValueError:
         print(f"Error debe ser un número, introduciste '{sys.argv[4]}'")
+        return
+
+    if lim_sup <= lim_inf:
+        print(f"Límite superior debe ser mayor que el límite inferior")
         return
 
     return punto_medio(lim_sup, lim_inf, obj, err)
